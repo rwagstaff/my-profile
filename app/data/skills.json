@@ -1,0 +1,38 @@
+[
+  {
+    "language": "Java",
+    "exp": "8"
+  },
+  {
+    "language": "Spring",
+    "exp": "6"
+  },
+  {
+    "language": "Maven",
+    "exp": "6"
+  },
+  {
+    "language": "SQL",
+    "exp": "9"
+  },
+  {
+    "language": "JavaScript",
+    "exp": "4"
+  },
+  {
+    "language": "AngularJS",
+    "exp": "2"
+  },
+  {
+    "language": "Python",
+    "exp": "3"
+  },
+  {
+    "language": "Bootstrap",
+    "exp": "3"
+  },
+  {
+    "language": "HTML",
+    "exp": "4"
+  }
+]

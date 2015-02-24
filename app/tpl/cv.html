@@ -1,0 +1,60 @@
+<div class="col" ng-controller="CVCtrl">
+    <!-- main header -->
+    <div class="bg-light lter b-b wrapper-md">
+        <div class="row">
+            <div class="col-sm-6 col-xs-12">
+                <h1 class="m-n font-thin h3 text-black">Curriculum Vitae</h1>
+                <small class="text-muted">Senior Developer</small>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-11 m-lg panel">
+        <div class="row">
+            <div class="text-center m-t-md">
+                <span class="h4 font-thin ">Personal Statement</span>
+            </div>
+
+            <div class="text-center">
+    <span class="h4 font-thin">I am an extremely enthusiastic programmer who has a strong passion for
+creating production ready systems and have experience in the entire
+software lifecycle.</span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="line line-dashed b-b line-lg pull-in"></div>
+            <div class="text-center">
+                <span class="h4 font-thin">Programming Languages/Frameworks</span>
+            </div>
+            <div class="col-md-5">
+                <highchart id="chart1" config="ideConfig"></highchart>
+            </div>
+            <div class="col-md-6">
+                <highchart id="chart1" config="chartConfig"></highchart>
+            </div>
+        </div>
+        <div class="row">
+            <div class="line line-dashed b-b line-lg pull-in"></div>
+            <div class="text-center">
+                <span class="h4 font-thin">Experience</span>
+            </div>
+
+            <div ng-repeat="company in experience">
+                <div class="col-md-11">
+                    <div class="text-center m-b-sm">
+                    <span class="h4 font-thin">{{company.company}} <span
+                            class="text-muted">{{company.period}}</span></span>
+
+                        <div class="pull-right"><img style="height: 50px; width: 50px" ng-src="{{company.logo}}"></div>
+                    </div>
+                    <p>{{company.summary}}</p>
+                    <ul>
+                        <li ng-repeat="point in company.points">{{point}}</li>
+                    </ul>
+                </div>
+                <div class="line line-dashed b-b line-lg pull-in"></div>
+            </div>
+        </div>
+    </div>
+</div>
+

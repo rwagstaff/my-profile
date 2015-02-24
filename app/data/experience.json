@@ -1,0 +1,24 @@
+[
+  {
+    "company": "Databarracks LTD",
+    "period": "2013 - Present",
+    "logo" : "img/db-icon.png",
+    "summary": "My role was to re-design the company Infrastructure as a Service portal. This allowed clients to connect to their infrastructure platform hosted on VMWare. Being the only developer on the project, the project required full stack development along with the ability to work independently.",
+    "points": [
+      "I transformed a very old outsourced project into a modern SPA web application",
+      "Introduced key concepts such continuous integration and TDD development to the company",
+      "Implemented the full pyramid of automated testing ranging from unit testing to e2e"
+    ]
+  },
+  {
+    "company": "Dion Global Solutions",
+    "period": "2006 - 2013",
+    "logo" : "img/dion.png",
+    "summary": "I worked on a variety of projects including a client side wealth management system that allowed users to manage high value portfolios. I also worked on document warehousing website which allowed people toview portfolio summary generated from a backend system.",
+    "points": [
+      "Trained employees about the company’s software practices and technologies used.",
+      "Running a placement student recruitment program and conducting interviews to select the best candidate. I built relationships with surrounding universities to make Dion more appealing to top students",
+      "Provided technical support to a sales team in Hong Kong to create a successful pitch to one of the world’s largest banks."
+    ]
+  }
+]
