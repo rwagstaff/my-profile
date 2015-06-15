@@ -7,7 +7,6 @@
 var app = angular.module('app.services', []);
 app.factory('MyCV', function ($http) {
 
-
     var getResponse = function (filename) {
         return  $http.get(filename).then(function (response) {
             return response.data;

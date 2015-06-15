@@ -14,7 +14,6 @@ var app = angular.module('app', [
         'ui.jq',
         'ui.validate',
         'highcharts-ng',
-        'app.filters',
         'app.services',
         'app.directives',
         'app.controllers'
