@@ -10,4 +10,6 @@ class CV {
     String id;
     String title
     List jobs
+    List<Skill> programming
+    List<Skill> ides
 }

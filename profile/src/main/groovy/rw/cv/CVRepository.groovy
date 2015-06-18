@@ -19,7 +19,11 @@ class CVRepository  {
     }
 
     def findAll() {
-        template.findAll(CV)
+        return template.findAll(CV)
+    }
+
+    def findOne(id) {
+        return template.findById(id, CV)
     }
 }
 

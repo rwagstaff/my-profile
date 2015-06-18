@@ -1,0 +1,1 @@
+java -Xdebug -Xrunjdwp:server=y,transport=dt_socket,address=8787,suspend=n -jar ./build/libs/my-profile-0.1.0.jar

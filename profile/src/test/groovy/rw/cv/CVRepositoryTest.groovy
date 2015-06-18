@@ -20,7 +20,7 @@ class CVRepositoryTest {
     @Test
     public void test() {
         CV cv = new CVService().findCVs()
-        repository.insertCV(cv);
+        repository.insertCV(cv)
         println 'done!'
     }
 }

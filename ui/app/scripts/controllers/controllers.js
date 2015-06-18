@@ -90,7 +90,11 @@ angular.module('app.controllers', ['ngCookies'])
 
         MyCV.experience().then(function (data) {
             $scope.experience = data;
-        })
+        });
+
+        MyCV.cv().get().then(function (cv) {
+            $scope.cv = cv;
+        });
     }])
     .controller('TypeaheadDemoCtrl', ['$scope', '$http', function ($scope, $http) {
         $scope.selected = undefined;

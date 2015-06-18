@@ -4,8 +4,8 @@
 
 
 // Demonstrate how to register services
-var app = angular.module('app.services', []);
-app.factory('MyCV', function ($http) {
+var app = angular.module('app.services', ['restangular']);
+app.factory('MyCV', function ($http, Restangular) {
 
     var getResponse = function (filename) {
         return  $http.get(filename).then(function (response) {
@@ -21,6 +21,9 @@ app.factory('MyCV', function ($http) {
         },
         ide: function () {
             return getResponse('data/ide.json');
+        },
+        cv: function() {
+          return Restangular.one('cv', '5581918a3d14c75908765709');
         }
     };
 });

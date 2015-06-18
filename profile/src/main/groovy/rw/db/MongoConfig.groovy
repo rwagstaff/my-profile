@@ -1,5 +1,6 @@
 package rw.db
 
+import org.springframework.boot.context.properties.ConfigurationProperties
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.data.mongodb.MongoDbFactory
@@ -9,16 +10,20 @@ import org.springframework.data.mongodb.core.SimpleMongoDbFactory
 import com.mongodb.MongoClient
 
 @Configuration
+@ConfigurationProperties(prefix='db')
 class MongoConfig {
+
+    String host
+    Integer port
+    String name
 
     @Bean
     def MongoDbFactory mongoDbFactory() {
-        return new SimpleMongoDbFactory(new MongoClient('127.0.0.1', 32768), 'cv');
+        return new SimpleMongoDbFactory(new MongoClient(host, port), name)
     }
 
     @Bean
     def MongoTemplate mongoTemplate() {
-        MongoTemplate mongoTemplate = new MongoTemplate(mongoDbFactory());
-        return mongoTemplate;
+        return new MongoTemplate(mongoDbFactory())
     }
 }

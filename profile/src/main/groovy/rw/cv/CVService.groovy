@@ -25,6 +25,10 @@ class CVService {
     }
 
     def findAllCVs() {
-        return repository.find();
+        return repository.findAll()
+    }
+
+    def findOne(id) {
+        return repository.findOne(id)
     }
 }
