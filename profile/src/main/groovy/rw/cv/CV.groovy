@@ -1,7 +1,13 @@
 package rw.cv
 
+import org.springframework.data.annotation.Id
+import org.springframework.data.mongodb.core.mapping.Document
+
+@Document
 class CV {
 
-	String title
-	List jobs
+    @Id
+    String id;
+    String title
+    List jobs
 }

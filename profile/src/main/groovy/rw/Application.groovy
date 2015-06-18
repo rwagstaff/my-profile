@@ -16,9 +16,9 @@ class Application {
 
     static void main(String[] args) {
         Object[] source = [
-            Application.class,
-            new ClassPathResource("META-INF/context.groovy")
+            Application,
+            new ClassPathResource('META-INF/spring/context.groovy')
         ];
-        ConfigurableApplicationContext context =  SpringApplication.run(source, args);
+        ConfigurableApplicationContext context =  SpringApplication.run(source, args)
     }
 }
