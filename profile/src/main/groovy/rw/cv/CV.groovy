@@ -7,7 +7,8 @@ import org.springframework.data.mongodb.core.mapping.Document
 class CV {
 
     @Id
-    String id;
+    String id
+    String name
     String title
     List jobs
     List<Skill> programming

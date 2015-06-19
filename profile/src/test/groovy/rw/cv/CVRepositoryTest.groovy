@@ -1,7 +1,6 @@
 package rw.cv
 
-import static org.junit.Assert.*
-
+import org.junit.Ignore
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.springframework.beans.factory.annotation.Autowired
@@ -18,9 +17,22 @@ class CVRepositoryTest {
     private CVRepository repository
 
     @Test
-    public void test() {
-        CV cv = new CVService().findCVs()
-        repository.insertCV(cv)
-        println 'done!'
+    public void shouldDoCrud() {
+        CV cv = CVUtils.createMe()
+        cv.name = 'Test CV'
+        repository.save(cv)
+        CV cv2 = repository.findByName(cv.name)
+        assert cv2 != null
+        repository.delete(cv2)
+
+        def deleted = repository.findByName(cv.name)
+        assert deleted == null
+    }
+
+    @Test
+    @Ignore
+    public void createMe() {
+        CV cv = CVUtils.createMe()
+        repository.save(cv)
     }
 }

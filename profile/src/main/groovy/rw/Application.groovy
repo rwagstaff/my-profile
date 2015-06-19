@@ -19,6 +19,8 @@ class Application {
             Application,
             new ClassPathResource('META-INF/spring/context.groovy')
         ];
+
+
         ConfigurableApplicationContext context =  SpringApplication.run(source, args)
     }
 }
