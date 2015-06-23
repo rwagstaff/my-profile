@@ -1,0 +1,8 @@
+# Ignore everything but the distribution folder
+
+node_modules
+.idea
+.tmp
+bower_components
+test
+app
