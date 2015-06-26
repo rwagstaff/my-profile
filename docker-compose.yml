@@ -1,0 +1,15 @@
+web:
+  build: ui
+  ports:
+   - "80:80"
+  links:
+   - application 
+application:
+  build: profile
+  ports:
+   - "8080:8080"
+  links:
+   - database
+  command: "-Dspring.profiles.active=docker -jar libs/my-profile-0.1.0.jar"
+database:
+  build: database

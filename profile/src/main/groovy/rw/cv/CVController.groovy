@@ -12,7 +12,7 @@ class CVController {
     @Autowired
     CVService cvService
 
-    @RequestMapping('/cv')
+    @RequestMapping('/cvs')
     def findCV() {
         return cvService.findAllCVs()
     }
@@ -24,6 +24,6 @@ class CVController {
 
     @RequestMapping('/cv')
     def findByName(@RequestParam('name') String name) {
-        return cvService.find
+        return cvService.findByName(name)
     }
 }

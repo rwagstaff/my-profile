@@ -19,6 +19,9 @@ class MongoConfig {
 
     @Bean
     def MongoDbFactory mongoDbFactory() {
+        println 'Using host from cv!!!!!!' + host
+        println 'Yoooooo!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
+
         return new SimpleMongoDbFactory(new MongoClient(host, port), name)
     }
 

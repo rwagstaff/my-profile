@@ -10,10 +10,6 @@ apply plugin: 'spring-boot'
 apply plugin: 'groovy'
 apply plugin: 'war'
 
-war {
-    baseName = 'my-profile'
-    version =  '0.1.0'
-}
 jar {
     baseName = 'my-profile'
     version =  '0.1.0'
@@ -31,7 +27,7 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
     // tag::actuator[]
     compile("org.springframework.boot:spring-boot-starter-actuator")
-    compile('org.springframework.data:spring-data-mongodb:1.7.0.RELEASE')
+    compile("org.springframework.boot:spring-boot-starter-data-mongodb")
     // end::actuator[]
     // tag::tests[]
     testCompile("org.springframework.boot:spring-boot-starter-test")

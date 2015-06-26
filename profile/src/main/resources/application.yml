@@ -1,0 +1,15 @@
+db:
+    port: 27017
+    host: localhost
+    name: cv
+---
+
+spring:
+    profiles: local
+db:
+    host: localhost
+---
+spring:
+    profiles: docker
+db:
+    host: ${DATABASE_1_PORT_27017_TCP_ADDR}

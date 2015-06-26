@@ -1,6 +1,7 @@
 package rw.cv
 
 import org.junit.Before
+import org.junit.Ignore
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.springframework.beans.factory.annotation.Value
@@ -40,8 +41,9 @@ class CVControllerTest {
     }
 
     @Test
-    public void shouldFindOneCV() {
-        ResponseEntity<String> response = template.getForEntity(base.toString() + '/cv/5581918a3d14c75908765709' , String.class)
+    @Ignore
+    public void shouldFindByName() {
+        ResponseEntity<String> response = template.getForEntity(base.toString() + '/cv?name=Richard Wagstaff' , String.class)
         assert response.getBody() != null
     }
 }
