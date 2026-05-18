@@ -1,0 +1,111 @@
+<style>
+    svg {
+        border: 1px solid red;
+    }
+
+    #line {
+        stroke: #0ae448;
+        stroke-width: 20px;
+        visibility: hidden;
+    }
+
+    #theGreenLine {
+        stroke: green;
+        stroke-width: 10px;
+    }
+
+    #template, #path {
+        fill: none;
+    }
+
+    #template {
+        stroke-width: 5px;
+        stroke: #444;
+    }
+
+    #path {
+        stroke: #0ae448;
+        stroke-width: 20px;
+        visibility: hidden;
+    }
+
+    #code, #value {
+        font-size: 2rem;
+        font-family: monospace;
+    }
+
+    #code {
+        color: #777;
+        margin: 20px;
+        position: relative;
+        visibility: hidden;
+    }
+
+    #current {
+        display: inline-block;
+        color: white;
+    }
+
+    .pulse {
+        background-color: coral;
+        height: 20vmax;
+        width: 20vmax;
+        border-radius: 100%;
+        position: relative;
+    }
+
+    .circle1 {
+        position: absolute;
+        background-color: coral;
+        height: 100%;
+        width: 100%;
+        border-radius: 100%;
+        opacity: 0.8;
+
+    }
+
+    .ball {
+        fill: white;
+        stroke: black;
+        stroke-width: 2px;
+        visibility: visible;
+    }
+
+</style>
+<div style="height: 100vh">
+  <svg id="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 1200">
+    <text class="text01" x="30" y="50">2006 - DION GLOBAL SOLUTIONS</text>
+    <text class="text02" x="30" y="290">2013 - DATABARRACKS</text>
+    <text class="text03" x="30" y="390">2015 - CAPITALAB</text>
+    <text class="text04" x="30" y="790">2022 - GENESIS</text>
+    <text class="text05" x="30" y="990">2023 - HOLLAND AND BARRETT</text>
+
+    <path id="theGreenLine" class="theGreenLine"
+          d="M -5,0
+           Q 450 230 300 450
+           T 130 750
+           Q 100 850 300 1000
+           T 150 1200"
+          fill="none" stroke="green" stroke-width="10px" />
+
+    <circle id="circle1" r="15" cx="280" cy="200" stroke="red" stroke-width="10px" visibility="hidden"></circle>
+    <circle class="ball ball02" cx="298" cy="221"></circle>
+    <circle class="ball ball03" cx="347" cy="419"></circle>
+    <circle class="ball ball04" cx="223" cy="621"></circle>
+
+  </svg>
+
+
+  <svg height="100%">
+    <g id="pulse" transform="translate(50, 50)">
+      <circle class="circle1" r="30" fill="pink" />
+      <circle class="circle1" r="30" fill="blue" />
+      <circle class="circle1" r="30" fill="yellow" />
+    </g>
+
+    <line id="line" x1="10" y1="10" x2="10" y2="1000" />
+  </svg>
+
+
+
+</div>
