@@ -9,6 +9,7 @@ const nameMarkup = profile.name
   .split('')
   .map(character => `<span class="letter">${character === ' ' ? '&nbsp;' : character}</span>`)
   .join('');
+const backgroundUrl = `${import.meta.env.BASE_URL}background.svg`;
 
 const template = document.createElement('template');
 template.innerHTML = `
@@ -21,7 +22,7 @@ template.innerHTML = `
       align-items: center;
       background:
         linear-gradient(135deg, rgba(2, 6, 23, 0.82), rgba(15, 23, 42, 0.72)),
-        url('/background.svg') center / cover no-repeat,
+        url('${backgroundUrl}') center / cover no-repeat,
         linear-gradient(135deg, #020617 0%, #0f172a 52%, #111827 100%);
       color: #f8fafc;
       display: grid;

@@ -16,6 +16,8 @@ export type Experience = {
   highlights: string[];
 };
 
+const publicAsset = (path: string) => `${import.meta.env.BASE_URL}${path}`;
+
 export const profile = {
   name: 'Richard Wagstaff',
   role: 'Lead Developer | Full Stack',
@@ -26,20 +28,20 @@ export const profile = {
 };
 
 export const technologies: Technology[] = [
-  { name: 'Java', years: 18, icon: '/tech-icons/java.svg', color: 0xffb86c, accent: 0xffedd5 },
-  { name: 'Spring', years: 15, icon: '/tech-icons/spring.svg', color: 0x8ee6a6, accent: 0xdcfce7 },
-  { name: 'SQL', years: 15, icon: '/tech-icons/postgresql.svg', color: 0x9bdcff, accent: 0xe0f2fe },
-  { name: 'JavaScript', years: 10, icon: '/tech-icons/javascript.svg', color: 0xffe66d, accent: 0xfef9c3 },
-  { name: 'TypeScript', years: 8, icon: '/tech-icons/typescript.svg', color: 0x8fb8ff, accent: 0xdbeafe },
-  { name: 'Angular', years: 7, icon: '/tech-icons/angular.svg', color: 0xff9da7, accent: 0xfee2e2 },
-  { name: 'Kotlin', years: 5, icon: '/tech-icons/kotlin.svg', color: 0xc4a7ff, accent: 0xede9fe },
-  { name: 'Node.js', years: 5, icon: '/tech-icons/nodejs.svg', color: 0x8fe8c0, accent: 0xbbf7d0 },
-  { name: 'Python', years: 5, icon: '/tech-icons/python.svg', color: 0xffd36e, accent: 0xfef3c7 },
-  { name: 'Gradle', years: 5, icon: '/tech-icons/gradle.svg', color: 0x8de7de, accent: 0xccfbf1 },
-  { name: 'Vue', years: 5, icon: '/tech-icons/vue.svg', color: 0x95edc9, accent: 0xd1fae5 },
-  { name: 'AWS', years: 3, icon: '/tech-icons/aws.svg', color: 0xffc08a, accent: 0xffedd5 },
-  { name: 'Docker', years: 3, icon: '/tech-icons/docker.svg', color: 0x94d8ff, accent: 0xe0f2fe },
-  { name: 'Kafka', years: 3, icon: '/tech-icons/kafka.svg', color: 0xd4d4ff, accent: 0xf1f5f9 },
+  { name: 'Java', years: 18, icon: publicAsset('tech-icons/java.svg'), color: 0xffb86c, accent: 0xffedd5 },
+  { name: 'Spring', years: 15, icon: publicAsset('tech-icons/spring.svg'), color: 0x8ee6a6, accent: 0xdcfce7 },
+  { name: 'SQL', years: 15, icon: publicAsset('tech-icons/postgresql.svg'), color: 0x9bdcff, accent: 0xe0f2fe },
+  { name: 'JavaScript', years: 10, icon: publicAsset('tech-icons/javascript.svg'), color: 0xffe66d, accent: 0xfef9c3 },
+  { name: 'TypeScript', years: 8, icon: publicAsset('tech-icons/typescript.svg'), color: 0x8fb8ff, accent: 0xdbeafe },
+  { name: 'Angular', years: 7, icon: publicAsset('tech-icons/angular.svg'), color: 0xff9da7, accent: 0xfee2e2 },
+  { name: 'Kotlin', years: 5, icon: publicAsset('tech-icons/kotlin.svg'), color: 0xc4a7ff, accent: 0xede9fe },
+  { name: 'Node.js', years: 5, icon: publicAsset('tech-icons/nodejs.svg'), color: 0x8fe8c0, accent: 0xbbf7d0 },
+  { name: 'Python', years: 5, icon: publicAsset('tech-icons/python.svg'), color: 0xffd36e, accent: 0xfef3c7 },
+  { name: 'Gradle', years: 5, icon: publicAsset('tech-icons/gradle.svg'), color: 0x8de7de, accent: 0xccfbf1 },
+  { name: 'Vue', years: 5, icon: publicAsset('tech-icons/vue.svg'), color: 0x95edc9, accent: 0xd1fae5 },
+  { name: 'AWS', years: 3, icon: publicAsset('tech-icons/aws.svg'), color: 0xffc08a, accent: 0xffedd5 },
+  { name: 'Docker', years: 3, icon: publicAsset('tech-icons/docker.svg'), color: 0x94d8ff, accent: 0xe0f2fe },
+  { name: 'Kafka', years: 3, icon: publicAsset('tech-icons/kafka.svg'), color: 0xd4d4ff, accent: 0xf1f5f9 },
 ];
 
 export const experiences: Experience[] = [
