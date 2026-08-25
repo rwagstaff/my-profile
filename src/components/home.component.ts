@@ -1,47 +1,30 @@
-import {gsap} from "gsap";
-import {ScrollTrigger} from "gsap/ScrollTrigger";
-import html from "./home.component.html?raw";
+const template = document.createElement('template');
+template.innerHTML = `
+  <style>
+    :host {
+      display: block;
+      min-height: 100vh;
+    }
 
-
-gsap.registerPlugin(ScrollTrigger);
-
-const template = document.createElement("template");
-template.innerHTML = html;
+    .root {
+      background: #020617;
+      min-height: 100vh;
+      overflow: clip;
+    }
+  </style>
+  <main class="root">
+    <hero-section></hero-section>
+    <tech-bubbles-section></tech-bubbles-section>
+    <career-timeline-section></career-timeline-section>
+    <about-section></about-section>
+    <thanks-section></thanks-section>
+  </main>
+`;
 
 export class HomeComponent extends HTMLElement {
-    connectedCallback() {
-        this.attachShadow({mode: "open"});
-        let root = this.shadowRoot as ShadowRoot;
-        root.appendChild(template.content.cloneNode(true));
-        const c = root.querySelector(".c");
-        const ghost    = root.querySelector(".ghost");
-
-
-        gsap.to(c, {
-            scrollTrigger: {
-                trigger: c,
-                start: "top center",
-
-                toggleActions: "restart pause resume pause",
-                scrub: 1,
-            },
-            x: 500,
-            rotation: 360,
-            duration: 2,
-        });
-
-        // gsap.to(ghost, {
-        //     scrollTrigger: {
-        //         trigger: ghost,
-        //         start: "top center",
-        //         toggleActions: "restart pause resume pause",
-        //         scrub: true,
-        //     },
-        //     x: 500,
-        //     rotation: 360,
-        //     duration: 2,
-        // });
-
-
+  connectedCallback() {
+    if (!this.shadowRoot) {
+      this.attachShadow({ mode: 'open' }).appendChild(template.content.cloneNode(true));
     }
+  }
 }

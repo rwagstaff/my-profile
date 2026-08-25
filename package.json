@@ -10,9 +10,12 @@
     "format": "prettier --write **/*.{ts,html}"
   },
   "devDependencies": {
-    "gsap": "^3.15.0",
     "prettier": "^3.3.3",
     "typescript": "^5.2.2",
     "vite": "^5.3.4"
+  },
+  "dependencies": {
+    "gsap": "^3.15.0",
+    "pixi.js": "^8.18.1"
   }
 }
