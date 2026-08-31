@@ -16,16 +16,76 @@ export type Experience = {
   highlights: string[];
 };
 
+export type AboutCard = {
+  title: string;
+  accent: string;
+  icon?: string;
+  iconDisplay?: 'mask' | 'image';
+  href?: string;
+  backTitle?: string;
+  backItems?: string[];
+};
+
 const publicAsset = (path: string) => `${import.meta.env.BASE_URL}${path}`;
 
 export const profile = {
   name: 'Richard Wagstaff',
   role: 'Lead Developer | Full Stack',
-  email: 'richard.wagstaff@example.com',
-  headline: 'Senior full-stack software engineer building production systems across finance, cloud infrastructure and retail.',
+  email: 'richardwagstaff1984@gmail.com',
+  printableCvUrl: 'https://rwagstaff.github.io/my-cv/',
+  headline:
+    'Lead full-stack engineer turning complex business problems into secure, scalable products across finance, cloud infrastructure and retail.',
   summary:
-    'Around 20 years of commercial experience building and evolving production systems across both large enterprises and fast-paced start-ups. Strong background in Java, Kotlin, TypeScript, modern cloud platforms and event-driven architectures.',
+    'Across around 20 years in start-ups and enterprise teams, I have moved comfortably between hands-on delivery and technical leadership, with a practical bias for simple architecture, reliable code and products people can actually use.',
+  education: 'Aston University — BSc (Hons), 2:1',
+  links: [
+    { label: 'GitHub', url: 'https://github.com/rwagstaff' },
+    { label: 'GitLab', url: 'https://gitlab.com/RichardWagstaff' },
+  ],
 };
+
+export const aboutCards: AboutCard[] = [
+  {
+    title: 'GitLab',
+    accent: '20, 184, 166',
+    icon: publicAsset('about-icons/gitlab.svg'),
+    href: 'https://gitlab.com/RichardWagstaff',
+  },
+  {
+    title: 'Video Games',
+    accent: '168, 85, 247',
+    icon: publicAsset('about-icons/game-controller.svg'),
+    backTitle: 'Favourite Games',
+    backItems: ['God of War', 'Astro Bot', 'Metal Gear Solid'],
+  },
+  {
+    title: 'Football',
+    accent: '34, 197, 94',
+    icon: publicAsset('about-icons/football.svg'),
+    iconDisplay: 'image',
+    backItems: ['Still playing in my 40s :)'],
+  },
+  {
+    title: 'GitHub',
+    accent: '96, 165, 250',
+    icon: publicAsset('about-icons/github.svg'),
+    href: 'https://github.com/rwagstaff',
+  },
+  {
+    title: 'LCFC',
+    accent: '59, 130, 246',
+    icon: publicAsset('about-icons/leicester-city-crest.svg'),
+    iconDisplay: 'image',
+    backTitle: 'Favourite Players',
+    backItems: ['Jamie Vardy', "N'Golo Kanté"],
+  },
+  {
+    title: 'Running',
+    accent: '251, 146, 60',
+    icon: publicAsset('about-icons/running.svg'),
+    backItems: ['Completed several half marathons', 'Best time 1:40'],
+  },
+];
 
 export const technologies: Technology[] = [
   { name: 'Java', years: 18, icon: publicAsset('tech-icons/java.svg'), color: 0xffb86c, accent: 0xffedd5 },
@@ -103,5 +163,3 @@ export const experiences: Experience[] = [
     ],
   },
 ];
-
-export const hobbies = ['Football', 'Video Games', 'Running'];

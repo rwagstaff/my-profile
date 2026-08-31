@@ -6,8 +6,17 @@ import { profile } from '../data/cv';
 gsap.registerPlugin(ScrollTrigger, ScrambleTextPlugin);
 
 const nameMarkup = profile.name
-  .split('')
-  .map(character => `<span class="letter">${character === ' ' ? '&nbsp;' : character}</span>`)
+  .split(' ')
+  .map(
+    namePart => `
+      <span class="name-line">
+        ${namePart
+          .split('')
+          .map(character => `<span class="letter">${character}</span>`)
+          .join('')}
+      </span>
+    `,
+  )
   .join('');
 const backgroundUrl = `${import.meta.env.BASE_URL}background.svg`;
 
@@ -60,8 +69,7 @@ template.innerHTML = `
     }
 
     h1 {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
       font-size: clamp(4rem, 14vw, 11.5rem);
       letter-spacing: -0.08em;
       line-height: 0.84;
@@ -69,6 +77,10 @@ template.innerHTML = `
       max-width: 13ch;
       overflow: hidden;
       text-transform: uppercase;
+    }
+
+    .name-line {
+      display: block;
     }
 
     .letter {

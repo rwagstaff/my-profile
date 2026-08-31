@@ -298,9 +298,9 @@ export class TechBubblesSectionComponent extends HTMLElement {
     const centerY = app.screen.height / 2;
     const timeline = gsap.timeline({
       scrollTrigger: {
-        end: 'bottom 35%',
+        end: 'bottom 55%',
         scrub: 1,
-        start: 'top 72%',
+        start: 'top 90%',
         trigger: this,
       },
     });

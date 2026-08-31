@@ -1,6 +1,7 @@
 import { Application, Container, Graphics } from 'pixi.js';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { profile } from '../data/cv';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -68,17 +69,36 @@ template.innerHTML = `
       max-width: 35rem;
     }
 
+    .actions {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .action-link,
     button {
       background: #f8fafc;
       border: 0;
       border-radius: 999px;
       color: #020617;
       cursor: pointer;
+      display: inline-block;
       font: inherit;
       font-weight: 900;
       padding: 0.9rem 1.4rem;
+      text-decoration: none;
     }
 
+    .action-link.secondary {
+      background: rgba(248, 250, 252, 0.12);
+      border: 1px solid rgba(248, 250, 252, 0.3);
+      color: #f8fafc;
+    }
+
+    .action-link:focus-visible,
     button:focus-visible {
       outline: 0.25rem solid #fdba74;
       outline-offset: 0.25rem;
@@ -88,8 +108,11 @@ template.innerHTML = `
     <div class="fireworks-stage" aria-hidden="true"></div>
     <div class="content">
       <p class="eyebrow">05 / End</p>
-      <h2 id="thanks-title">Thanks for scrolling</h2>
-      <p>If you want the formal PDF version, use the original CV. This version is for exploring the story interactively.</p>
+      <h2 id="thanks-title">Thanks for scrolling</h2>    
+      <div class="actions" aria-label="Contact links">
+        <a class="action-link" href="mailto:${profile.email}">${profile.email}</a>
+        <a class="action-link secondary" href="${profile.printableCvUrl}" target="_blank" rel="noreferrer">Printable CV</a>
+      </div>
       <button type="button">Back to top</button>
     </div>
   </section>
@@ -107,7 +130,7 @@ export class ThanksSectionComponent extends HTMLElement {
   private resizeObserver?: ResizeObserver;
   private readonly backToTop = () => window.scrollTo({ behavior: 'smooth', top: 0 });
   private readonly launchFireworks = (event: PointerEvent) => {
-    if (event.composedPath().some(target => target instanceof HTMLButtonElement)) {
+    if (event.composedPath().some(target => target instanceof HTMLAnchorElement || target instanceof HTMLButtonElement)) {
       return;
     }
 
