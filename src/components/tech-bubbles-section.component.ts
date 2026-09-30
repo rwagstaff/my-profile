@@ -32,6 +32,23 @@ const placements = [
   { x: 0.08, y: 0.39 },
 ];
 
+const mobilePlacements = [
+  { x: 0.26, y: 0.14 },
+  { x: 0.72, y: 0.16 },
+  { x: 0.5, y: 0.28 },
+  { x: 0.22, y: 0.38 },
+  { x: 0.76, y: 0.4 },
+  { x: 0.5, y: 0.5 },
+  { x: 0.25, y: 0.59 },
+  { x: 0.74, y: 0.6 },
+  { x: 0.5, y: 0.69 },
+  { x: 0.23, y: 0.77 },
+  { x: 0.76, y: 0.79 },
+  { x: 0.5, y: 0.88 },
+  { x: 0.3, y: 0.95 },
+  { x: 0.7, y: 0.96 },
+];
+
 const template = document.createElement('template');
 template.innerHTML = `
   <style>
@@ -80,11 +97,13 @@ template.innerHTML = `
       height: min(70vh, 46rem);
       min-height: 34rem;
       position: relative;
+      touch-action: pan-y;
     }
 
     .stage canvas {
       display: block;
       height: 100%;
+      pointer-events: none;
       width: 100%;
     }
 
@@ -108,8 +127,14 @@ template.innerHTML = `
     }
 
     @media (max-width: 700px) {
+      .section {
+        min-height: auto;
+        padding-bottom: clamp(3rem, 10vw, 5rem);
+      }
+
       .stage {
-        height: 46rem;
+        height: min(58vh, 34rem);
+        min-height: 28rem;
       }
     }
   </style>
@@ -223,7 +248,7 @@ export class TechBubblesSectionComponent extends HTMLElement {
   }
 
   private createBubbleView(technology: Technology, texture: Texture): BubbleView {
-    const radius = Math.max(42, Math.min(88, 32 + technology.years * 3));
+    const radius = Math.max(40, Math.min(84, 29 + technology.years * 2.7));
     const container = new Container();
     const floatingLayer = new Container();
     const circle = new Graphics();
@@ -233,9 +258,9 @@ export class TechBubblesSectionComponent extends HTMLElement {
         align: 'center',
         fill: 0x0f172a,
         fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif',
-        fontSize: Math.max(11, Math.min(15, radius / 5.1)),
+        fontSize: Math.max(10, Math.min(14, radius / 5.25)),
         fontWeight: '800',
-        lineHeight: 17,
+        lineHeight: 16,
       },
       text: `${technology.name}\n${technology.years} yrs`,
     });
@@ -269,11 +294,12 @@ export class TechBubblesSectionComponent extends HTMLElement {
     const height = app.screen.height;
     const centerX = width / 2;
     const centerY = height / 2;
+    const placementsForViewport = width <= 700 ? mobilePlacements : placements;
 
     this.bubbleViews.forEach((view, index) => {
-      const placement = placements[index % placements.length];
-      const horizontalPadding = view.radius + 12;
-      const verticalPadding = view.radius + 54;
+      const placement = placementsForViewport[index % placementsForViewport.length];
+      const horizontalPadding = view.radius + (width <= 700 ? 8 : 12);
+      const verticalPadding = view.radius + (width <= 700 ? 28 : 54);
 
       view.targetX = clamp(placement.x * width, horizontalPadding, width - horizontalPadding);
       view.targetY = clamp(placement.y * height, verticalPadding, height - verticalPadding);
@@ -338,7 +364,7 @@ export class TechBubblesSectionComponent extends HTMLElement {
     const rect = stage.getBoundingClientRect();
 
     return {
-      height: Math.max(420, Math.round(rect.height)),
+      height: Math.max(window.innerWidth <= 700 ? 360 : 420, Math.round(rect.height)),
       width: Math.max(320, Math.round(rect.width)),
     };
   }

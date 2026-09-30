@@ -410,7 +410,7 @@ export class AboutSectionComponent extends HTMLElement {
           scrollTrigger: {
             end: 'bottom 55%',
             scrub: 1,
-            start: 'top 95%',
+            start: 'top 100%',
             trigger: cardGrid,
           },
         },
@@ -422,7 +422,7 @@ export class AboutSectionComponent extends HTMLElement {
         scrollTrigger: {
           end: 'bottom 55%',
           scrub: 1,
-          start: 'top 95%',
+          start: 'top 100%',
           trigger: cardGrid,
         },
       });
