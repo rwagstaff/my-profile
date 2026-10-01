@@ -72,10 +72,11 @@ template.innerHTML = `
     .actions {
       align-items: center;
       display: flex;
-      flex-wrap: wrap;
-      gap: 0.85rem;
+      flex-wrap: nowrap;
+      gap: clamp(1rem, 2vw, 1.5rem);
       justify-content: center;
-      margin-bottom: 1.25rem;
+      margin-bottom: 2rem;
+      margin-top: clamp(2.5rem, 6vw, 4.5rem);
     }
 
     .action-link,
@@ -98,6 +99,28 @@ template.innerHTML = `
       color: #f8fafc;
     }
 
+    .actions .action-link {
+      align-items: center;
+      display: inline-flex;
+      font-size: clamp(1.1rem, 2.2vw, 1.45rem);
+      gap: 0.65rem;
+      padding: clamp(1.1rem, 2.4vw, 1.5rem) clamp(1.9rem, 4vw, 2.75rem);
+      white-space: nowrap;
+    }
+
+    .actions .material-icons-outlined {
+      font-family: 'Material Icons Outlined', sans-serif;
+      font-size: 1.6em;
+      font-weight: 400;
+      line-height: 1;
+    }
+
+    @media (max-width: 30rem) {
+      .actions {
+        flex-wrap: wrap;
+      }
+    }
+
     .action-link:focus-visible,
     button:focus-visible {
       outline: 0.25rem solid #fdba74;
@@ -110,8 +133,14 @@ template.innerHTML = `
       <p class="eyebrow">05 / End</p>
       <h2 id="thanks-title">Thanks for scrolling</h2>    
       <div class="actions" aria-label="Contact links">
-        <a class="action-link" href="mailto:${profile.email}">${profile.email}</a>
-        <a class="action-link secondary" href="${profile.printableCvUrl}" target="_blank" rel="noreferrer">Printable CV</a>
+        <a class="action-link secondary" href="mailto:${profile.email}">
+          <span class="material-icons-outlined" aria-hidden="true">email</span>
+          Email Me
+        </a>
+        <a class="action-link secondary" href="${profile.printableCvUrl}" target="_blank" rel="noreferrer">
+          <span class="material-icons-outlined" aria-hidden="true">print</span>
+          Print Me
+        </a>
       </div>
       <button type="button">Back to top</button>
     </div>

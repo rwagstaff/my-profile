@@ -27,6 +27,12 @@ template.innerHTML = `
       display: block;
     }
 
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
     .hero {
       align-items: center;
       background:
@@ -70,7 +76,7 @@ template.innerHTML = `
 
     h1 {
       display: grid;
-      font-size: clamp(4rem, 14vw, 11.5rem);
+      font-size: clamp(2.75rem, min(14vw, 22vh), 11.5rem);
       letter-spacing: -0.08em;
       line-height: 0.84;
       margin: 0;
@@ -105,7 +111,7 @@ template.innerHTML = `
 
     .scroll-prompt {
       align-items: center;
-      bottom: clamp(1.5rem, 4vw, 3rem);
+      bottom: clamp(2.5rem, 8vh, 6rem);
       color: #bae6fd;
       display: flex;
       font-weight: 800;
@@ -179,7 +185,7 @@ export class HeroSectionComponent extends HTMLElement {
         .from(summary, { duration: 0.7, opacity: 0, y: 24 }, '-=0.35')
         .from(prompt, { duration: 0.6, opacity: 0, y: 18 }, '-=0.2');
 
-      gsap.to(prompt, { duration: 0.9, ease: 'sine.inOut', repeat: -1, y: 10, yoyo: true });
+      gsap.to(prompt, { duration: 0.9, ease: 'sine.inOut', repeat: -1, y: -10, yoyo: true });
       gsap.to(orb, {
         scale: 1.42,
         scrollTrigger: {

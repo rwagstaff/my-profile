@@ -56,15 +56,21 @@ template.innerHTML = `
       display: block;
     }
 
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
     .section {
       background:
         radial-gradient(circle at 18% 18%, rgba(191, 219, 254, 0.7), transparent 30rem),
         radial-gradient(circle at 82% 42%, rgba(221, 214, 254, 0.68), transparent 32rem),
         linear-gradient(180deg, #f8fafc 0%, #eef6ff 48%, #fdf2f8 100%);
       color: #0f172a;
-      min-height: 110svh;
+      min-height: 100svh;
       overflow: hidden;
-      padding: clamp(4rem, 8vw, 8rem) clamp(1.25rem, 5vw, 5rem);
+      padding: clamp(3rem, 5vw, 5rem) clamp(1.25rem, 5vw, 5rem);
     }
 
     .intro {
@@ -94,8 +100,8 @@ template.innerHTML = `
     }
 
     .stage {
-      height: min(70vh, 46rem);
-      min-height: 34rem;
+      height: min(58vh, 38rem);
+      min-height: 26rem;
       position: relative;
       touch-action: pan-y;
     }
@@ -133,8 +139,8 @@ template.innerHTML = `
       }
 
       .stage {
-        height: min(58vh, 34rem);
-        min-height: 28rem;
+        height: min(52vh, 30rem);
+        min-height: 24rem;
       }
     }
   </style>
@@ -142,7 +148,6 @@ template.innerHTML = `
     <div class="intro">
       <p class="eyebrow">02 / Technology</p>
       <h2 id="tech-title">Years in the stack</h2>
-      <p class="copy">A PixiJS bubble chart sized by approximate commercial experience. The goal is visual weight, not statistical precision.</p>
     </div>
     <div class="stage" aria-hidden="true"></div>
   </section>

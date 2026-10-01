@@ -60,20 +60,26 @@ template.innerHTML = `
       display: block;
     }
 
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
     .section {
       background:
         radial-gradient(circle at 85% 12%, rgba(96, 165, 250, 0.18), transparent 34rem),
         radial-gradient(circle at 10% 20%, rgba(20, 184, 166, 0.18), transparent 30rem),
         linear-gradient(180deg, #020617, #111827);
       color: #f8fafc;
-      min-height: 125svh;
+      min-height: 100svh;
       overflow: hidden;
-      padding: clamp(4rem, 8vw, 8rem) clamp(1.25rem, 5vw, 5rem);
+      padding: clamp(3rem, 5vw, 5rem) clamp(1.25rem, 5vw, 5rem);
     }
 
     .layout {
       display: grid;
-      gap: clamp(2rem, 5vw, 4rem);
+      gap: clamp(1.5rem, 3vw, 2.5rem);
       margin: 0 auto;
       max-width: 75rem;
     }
@@ -118,7 +124,7 @@ template.innerHTML = `
     }
 
     .card-shell {
-      min-height: clamp(13rem, 21vw, 18rem);
+      min-height: clamp(10rem, 16vw, 14rem);
       perspective: 90rem;
       transform-origin: 50% 70%;
       will-change: transform, opacity;
@@ -393,6 +399,13 @@ export class AboutSectionComponent extends HTMLElement {
         y: 50,
       });
 
+      const growScrollTrigger = (): ScrollTrigger.Vars => ({
+        end: 'top 45%',
+        scrub: 1,
+        start: 'top 125%',
+        trigger: cardGrid,
+      });
+
       gsap.fromTo(
         cardShells,
         {
@@ -407,24 +420,14 @@ export class AboutSectionComponent extends HTMLElement {
           rotateX: 0,
           scale: 1,
           y: 0,
-          scrollTrigger: {
-            end: 'bottom 55%',
-            scrub: 1,
-            start: 'top 100%',
-            trigger: cardGrid,
-          },
+          scrollTrigger: growScrollTrigger(),
         },
       );
 
       gsap.to(cardFaces, {
         boxShadow: '0 2rem 5rem rgba(0, 0, 0, 0.34)',
         ease: 'none',
-        scrollTrigger: {
-          end: 'bottom 55%',
-          scrub: 1,
-          start: 'top 100%',
-          trigger: cardGrid,
-        },
+        scrollTrigger: growScrollTrigger(),
       });
     });
   }

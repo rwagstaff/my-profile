@@ -183,7 +183,6 @@ template.innerHTML = `
     <div class="intro">
       <p class="eyebrow">03 / Career</p>
       <h2 id="career-title">Career timeline</h2>
-      <p class="copy">Scroll to draw the career line and reveal each company from alternating sides.</p>
     </div>
     <div class="timeline">
       <div class="base-line" aria-hidden="true"></div>
