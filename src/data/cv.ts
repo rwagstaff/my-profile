@@ -36,7 +36,7 @@ export const profile = {
   headline:
     'Lead full-stack engineer turning complex business problems into secure, scalable products across finance, cloud infrastructure and retail.',
   summary:
-    'Cards show my favourite things. Press for more inforamtion',
+    'Cards show my favourite things. Press for more information',
   education: 'Aston University — BSc (Hons), 2:1',
   links: [
     { label: 'GitHub', url: 'https://github.com/rwagstaff' },
