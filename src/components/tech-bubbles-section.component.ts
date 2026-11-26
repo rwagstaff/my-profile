@@ -33,20 +33,20 @@ const placements = [
 ];
 
 const mobilePlacements = [
-  { x: 0.26, y: 0.14 },
-  { x: 0.72, y: 0.16 },
-  { x: 0.5, y: 0.28 },
-  { x: 0.22, y: 0.38 },
-  { x: 0.76, y: 0.4 },
-  { x: 0.5, y: 0.5 },
-  { x: 0.25, y: 0.59 },
-  { x: 0.74, y: 0.6 },
-  { x: 0.5, y: 0.69 },
-  { x: 0.23, y: 0.77 },
-  { x: 0.76, y: 0.79 },
-  { x: 0.5, y: 0.88 },
-  { x: 0.3, y: 0.95 },
-  { x: 0.7, y: 0.96 },
+  { x: 0.21, y: 0.11 },
+  { x: 0.79, y: 0.145 },
+  { x: 0.49, y: 0.3 },
+  { x: 0.175, y: 0.44 },
+  { x: 0.84, y: 0.383 },
+  { x: 0.455, y: 0.515 },
+  { x: 0.24, y: 0.608 },
+  { x: 0.78, y: 0.575 },
+  { x: 0.585, y: 0.7 },
+  { x: 0.145, y: 0.765 },
+  { x: 0.865, y: 0.785 },
+  { x: 0.435, y: 0.865 },
+  { x: 0.175, y: 0.935 },
+  { x: 0.705, y: 0.918 },
 ];
 
 const template = document.createElement('template');
@@ -63,6 +63,7 @@ template.innerHTML = `
     }
 
     .section {
+      --side-padding: clamp(1.25rem, 5vw, 5rem);
       background:
         radial-gradient(circle at 18% 18%, rgba(191, 219, 254, 0.7), transparent 30rem),
         radial-gradient(circle at 82% 42%, rgba(221, 214, 254, 0.68), transparent 32rem),
@@ -70,7 +71,7 @@ template.innerHTML = `
       color: #0f172a;
       min-height: 100svh;
       overflow: hidden;
-      padding: clamp(3rem, 5vw, 5rem) clamp(1.25rem, 5vw, 5rem);
+      padding: clamp(3rem, 5vw, 5rem) var(--side-padding);
     }
 
     .intro {
@@ -139,8 +140,8 @@ template.innerHTML = `
       }
 
       .stage {
-        height: min(52vh, 30rem);
-        min-height: 24rem;
+        height: clamp(45rem, 200vw, 51rem);
+        margin-inline: calc(0.375rem - var(--side-padding));
       }
     }
   </style>
@@ -299,13 +300,17 @@ export class TechBubblesSectionComponent extends HTMLElement {
     const height = app.screen.height;
     const centerX = width / 2;
     const centerY = height / 2;
-    const placementsForViewport = width <= 700 ? mobilePlacements : placements;
+    const isMobile = window.matchMedia('(max-width: 700px)').matches;
+    const placementsForViewport = isMobile ? mobilePlacements : placements;
+    const scale = isMobile ? Math.min(1, width / 390) : 1;
 
     this.bubbleViews.forEach((view, index) => {
       const placement = placementsForViewport[index % placementsForViewport.length];
-      const horizontalPadding = view.radius + (width <= 700 ? 8 : 12);
-      const verticalPadding = view.radius + (width <= 700 ? 28 : 54);
+      const radius = view.radius * scale;
+      const horizontalPadding = radius + (isMobile ? 4 : 12);
+      const verticalPadding = radius + (isMobile ? 12 : 54);
 
+      view.floatingLayer.scale.set(scale);
       view.targetX = clamp(placement.x * width, horizontalPadding, width - horizontalPadding);
       view.targetY = clamp(placement.y * height, verticalPadding, height - verticalPadding);
 
@@ -369,8 +374,8 @@ export class TechBubblesSectionComponent extends HTMLElement {
     const rect = stage.getBoundingClientRect();
 
     return {
-      height: Math.max(window.innerWidth <= 700 ? 360 : 420, Math.round(rect.height)),
-      width: Math.max(320, Math.round(rect.width)),
+      height: Math.max(420, Math.round(rect.height)),
+      width: Math.max(1, Math.round(rect.width)),
     };
   }
 }

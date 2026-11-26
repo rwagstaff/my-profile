@@ -187,7 +187,8 @@ template.innerHTML = `
     <div class="timeline">
       <div class="base-line" aria-hidden="true"></div>
       <div class="progress-line" aria-hidden="true"></div>
-      ${experiences
+      ${[...experiences]
+        .reverse()
         .map(
           (experience, index) => `
             <article class="timeline-item ${index % 2 === 0 ? 'left' : 'right'}">

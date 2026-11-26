@@ -124,6 +124,7 @@ template.innerHTML = `
     }
 
     .card-shell {
+      display: grid;
       min-height: clamp(10rem, 16vw, 14rem);
       perspective: 90rem;
       transform-origin: 50% 70%;
@@ -131,14 +132,14 @@ template.innerHTML = `
     }
 
     .card {
-      display: block;
+      display: grid;
       min-height: inherit;
       perspective: 90rem;
     }
 
     .card-inner {
+      display: grid;
       min-height: inherit;
-      position: relative;
       transform-style: preserve-3d;
       transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
@@ -163,6 +164,7 @@ template.innerHTML = `
       flex-direction: column;
       font: inherit;
       gap: clamp(1rem, 2.5vw, 1.4rem);
+      grid-area: 1 / 1;
       justify-content: center;
       min-height: inherit;
       overflow: hidden;
@@ -193,8 +195,6 @@ template.innerHTML = `
       background:
         radial-gradient(circle at 50% 35%, rgba(var(--accent), 0.42), transparent 13rem),
         linear-gradient(145deg, rgba(30, 41, 59, 0.96), rgba(15, 23, 42, 0.92));
-      inset: 0;
-      position: absolute;
       transform: rotateY(180deg);
     }
 
@@ -284,6 +284,7 @@ template.innerHTML = `
 
     .card-reset {
       background: transparent;
+      flex-shrink: 0;
       font-family: inherit;
     }
 

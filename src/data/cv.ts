@@ -32,6 +32,7 @@ export const profile = {
   name: 'Richard Wagstaff',
   role: 'Lead Developer | Full Stack',
   email: 'richardwagstaff1984@gmail.com',
+  linkedinUrl: 'https://www.linkedin.com/in/richard-wagstaff-9734324a/',
   printableCvUrl: 'https://rwagstaff.github.io/my-cv/',
   headline:
     'Lead full-stack engineer turning complex business problems into secure, scalable products across finance, cloud infrastructure and retail.',
