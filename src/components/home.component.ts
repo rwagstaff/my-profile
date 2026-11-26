@@ -15,6 +15,7 @@ template.innerHTML = `
   <main class="root">
     <hero-section></hero-section>
     <tech-bubbles-section></tech-bubbles-section>
+    <constellation-section></constellation-section>
     <career-timeline-section></career-timeline-section>
     <about-section></about-section>
     <thanks-section></thanks-section>

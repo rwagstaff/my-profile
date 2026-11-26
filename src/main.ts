@@ -2,6 +2,7 @@ import './style.css';
 
 import { AboutSectionComponent } from './components/about-section.component.ts';
 import { CareerTimelineSectionComponent } from './components/career-timeline-section.component.ts';
+import { ConstellationSectionComponent } from './components/constellation-section.component.ts';
 import { DrawCircleComponent } from './components/draw-circle.component.ts';
 import { HeroSectionComponent } from './components/hero-section.component.ts';
 import { HomeComponent } from './components/home.component.ts';
@@ -17,6 +18,7 @@ const defineElement = (name: string, constructor: CustomElementConstructor) => {
 defineElement('home-component', HomeComponent);
 defineElement('hero-section', HeroSectionComponent);
 defineElement('tech-bubbles-section', TechBubblesSectionComponent);
+defineElement('constellation-section', ConstellationSectionComponent);
 defineElement('career-timeline-section', CareerTimelineSectionComponent);
 defineElement('about-section', AboutSectionComponent);
 defineElement('thanks-section', ThanksSectionComponent);

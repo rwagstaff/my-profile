@@ -330,7 +330,7 @@ template.innerHTML = `
   <section class="section" aria-labelledby="about-title">
     <div class="layout">
       <div class="content">
-        <p class="eyebrow">04 / About</p>
+        <p class="eyebrow">05 / About</p>
         <h2 id="about-title">About me</h2>
         <p class="summary">${profile.summary}</p>
         <p class="education">${profile.education}</p>

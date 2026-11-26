@@ -181,7 +181,7 @@ template.innerHTML = `
   </style>
   <section class="section" aria-labelledby="career-title">
     <div class="intro">
-      <p class="eyebrow">03 / Career</p>
+      <p class="eyebrow">04 / Career</p>
       <h2 id="career-title">Career timeline</h2>
     </div>
     <div class="timeline">

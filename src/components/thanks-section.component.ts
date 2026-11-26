@@ -129,7 +129,7 @@ template.innerHTML = `
   <section class="section" aria-labelledby="thanks-title">
     <div class="fireworks-stage" aria-hidden="true"></div>
     <div class="content">
-      <p class="eyebrow">05 / End</p>
+      <p class="eyebrow">06 / End</p>
       <h2 id="thanks-title">Thanks for scrolling</h2>    
       <div class="actions" aria-label="Contact links">
         <a class="action-link secondary" href="mailto:${profile.email}">
