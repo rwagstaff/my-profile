@@ -136,7 +136,7 @@ template.innerHTML = `
   <section class="hero" aria-labelledby="hero-title">
     <div class="orb"></div>
     <div class="content">
-      <p class="eyebrow">Animated CV</p>
+      <p class="eyebrow">Introducing</p>
       <h1 id="hero-title">${nameMarkup}</h1>
       <p class="title">${profile.role}</p>
       <p class="summary">${profile.headline}</p>

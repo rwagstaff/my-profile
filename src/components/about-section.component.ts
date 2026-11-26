@@ -106,12 +106,6 @@ template.innerHTML = `
       max-width: 58rem;
     }
 
-    .education {
-      color: #5eead4;
-      font-weight: 800;
-      margin: 1.5rem 0 0;
-    }
-
     a {
       text-decoration: none;
     }
@@ -327,7 +321,6 @@ template.innerHTML = `
         <p class="eyebrow">05 / About</p>
         <h2 id="about-title">About me</h2>
         <p class="summary">${profile.summary}</p>
-        <p class="education">${profile.education}</p>
       </div>
       <div class="card-grid" aria-label="Personal interests and code profiles">
         ${aboutCardMarkup}

@@ -16,20 +16,20 @@ type BubbleView = {
 const clamp = (value: number, min: number, max: number) => Math.min(Math.max(value, min), max);
 
 const placements = [
-  { x: 0.2, y: 0.24 },
-  { x: 0.45, y: 0.17 },
-  { x: 0.72, y: 0.25 },
-  { x: 0.31, y: 0.43 },
-  { x: 0.58, y: 0.42 },
-  { x: 0.84, y: 0.48 },
+  { x: 0.2, y: 0.19 },
+  { x: 0.477, y: 0.16 },
+  { x: 0.765, y: 0.205 },
+  { x: 0.344, y: 0.425 },
+  { x: 0.612, y: 0.402 },
+  { x: 0.875, y: 0.475 },
   { x: 0.15, y: 0.62 },
-  { x: 0.42, y: 0.64 },
-  { x: 0.68, y: 0.65 },
-  { x: 0.87, y: 0.72 },
-  { x: 0.27, y: 0.81 },
-  { x: 0.53, y: 0.83 },
-  { x: 0.76, y: 0.86 },
-  { x: 0.08, y: 0.39 },
+  { x: 0.43, y: 0.651 },
+  { x: 0.68, y: 0.628 },
+  { x: 0.885, y: 0.755 },
+  { x: 0.255, y: 0.83 },
+  { x: 0.515, y: 0.855 },
+  { x: 0.715, y: 0.846 },
+  { x: 0.085, y: 0.433 },
 ];
 
 const mobilePlacements = [
@@ -101,8 +101,7 @@ template.innerHTML = `
     }
 
     .stage {
-      height: min(58vh, 38rem);
-      min-height: 26rem;
+      height: clamp(39rem, 60vw, 49rem);
       position: relative;
       touch-action: pan-y;
     }
@@ -260,6 +259,7 @@ export class TechBubblesSectionComponent extends HTMLElement {
     const circle = new Graphics();
     const icon = new Sprite(texture);
     const label = new Text({
+      resolution: 2,
       style: {
         align: 'center',
         fill: 0x0f172a,
@@ -302,13 +302,13 @@ export class TechBubblesSectionComponent extends HTMLElement {
     const centerY = height / 2;
     const isMobile = window.matchMedia('(max-width: 700px)').matches;
     const placementsForViewport = isMobile ? mobilePlacements : placements;
-    const scale = isMobile ? Math.min(1, width / 390) : 1;
+    const scale = isMobile ? Math.min(1, width / 390) : clamp(1.1 + (width - 630) / 1700, 1.1, 1.5);
 
     this.bubbleViews.forEach((view, index) => {
       const placement = placementsForViewport[index % placementsForViewport.length];
       const radius = view.radius * scale;
       const horizontalPadding = radius + (isMobile ? 4 : 12);
-      const verticalPadding = radius + (isMobile ? 12 : 54);
+      const verticalPadding = radius + (isMobile ? 12 : 24);
 
       view.floatingLayer.scale.set(scale);
       view.targetX = clamp(placement.x * width, horizontalPadding, width - horizontalPadding);
