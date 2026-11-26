@@ -47,12 +47,6 @@ export const profile = {
 
 export const aboutCards: AboutCard[] = [
   {
-    title: 'GitLab',
-    accent: '20, 184, 166',
-    icon: publicAsset('about-icons/gitlab.svg'),
-    href: 'https://gitlab.com/RichardWagstaff',
-  },
-  {
     title: 'Video Games',
     accent: '168, 85, 247',
     icon: publicAsset('about-icons/game-controller.svg'),
@@ -79,12 +73,6 @@ export const aboutCards: AboutCard[] = [
     iconDisplay: 'image',
     backTitle: 'Favourite Players',
     backItems: ['Jamie Vardy', "N'Golo Kanté"],
-  },
-  {
-    title: 'Running',
-    accent: '251, 146, 60',
-    icon: publicAsset('about-icons/running.svg'),
-    backItems: ['Completed several half marathons', 'Best time 1:40'],
   },
 ];
 

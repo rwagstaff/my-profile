@@ -119,7 +119,7 @@ template.innerHTML = `
     .card-grid {
       display: grid;
       gap: clamp(1rem, 2.4vw, 1.5rem);
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       perspective: 90rem;
     }
 
@@ -309,12 +309,6 @@ template.innerHTML = `
       font-size: clamp(0.95rem, 2vw, 1.12rem);
       font-weight: 700;
       line-height: 1.25;
-    }
-
-    @media (max-width: 960px) {
-      .card-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
     }
 
     @media (max-width: 640px) {
